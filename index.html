@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sovix | Premium AI & Web Agency</title>
+  <meta name="description" content="We build premium websites and AI automation systems that run your business 24/7.">
+  <link rel="stylesheet" href="styles.css?version=2">
+  <!-- GSAP + ScrollTrigger -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div id="scroll-progress"></div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">SOVIX</div>
+      <div class="preloader-tagline">Premium Digital Agency</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="logo"
+        style="display: flex; align-items: center; gap: 12px; letter-spacing: 0.2em; font-weight: 800;"><img
+          src="logo.png" alt="Sovix Logo" style="height: 48px; width: auto;">SOVIX</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn btn-primary nav-cta" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">Get
+        Started</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#work" class="mobile-nav-link">Work</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary mobile-cta">Get Started →</a>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="booking-modal" id="booking-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-header" style="text-align: center;">
+        <div class="modal-brand"
+          style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1rem;"><img
+            src="logo.png" alt="Sovix Logo" style="height: 40px; width: auto;">SOVIX</div>
+        <h3>Connect With Us</h3>
+        <p>Choose your preferred platform to get started.</p>
+      </div>
+      <form id="booking-form" class="modal-form" style="display: none;">
+      </form>
+      <div class="modal-socials" style="display: flex; flex-direction: column; gap: 1rem; padding: 0 2rem 2rem;">
+        <a href="https://www.instagram.com/sovix.official/" class="btn btn-secondary"
+          style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          Instagram
+        </a>
+        <a href="https://x.com/sovixofficial" class="btn btn-secondary"
+          style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+            </path>
+          </svg>
+          Twitter
+        </a>
+        <a href="https://discord.gg/2GEgNgkq" class="btn btn-secondary"
+          style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M19.7 5.7c-1.5-1.1-3.3-1.6-5.2-1.7-.2.4-.4.9-.5 1.3-2 .3-4 .3-6 0-.2-.4-.3-.9-.5-1.3-1.9.1-3.7.6-5.2 1.7C-1.8 14.5.3 22 2.6 22c1.9 0 3.7-1.4 4.8-2.6l1.3 1.9c1.9.6 4 .6 6 0l1.3-1.9c1.1 1.2 2.9 2.6 4.8 2.6 2.3 0 4.4-7.5 .9-16.3zM8.5 15.5c-1.1 0-2-.9-2-2.1s.9-2.1 2-2.1c1.1 0 2 .9 2 2.1s-.9 2.1-2 2.1zm7.1 0c-1.1 0-2-.9-2-2.1s.9-2.1 2-2.1c1.1 0 2 .9 2 2.1s-.9 2.1-2 2.1z">
+            </path>
+          </svg>
+          Discord
+        </a>
+        <a href="mailto:sovixofficial@gmail.com" class="btn btn-secondary"
+          style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Hero Section -->
+  <header class="section hero" id="home">
+    <div class="glow-bg"></div>
+    <div class="container hero-grid">
+
+      <!-- Left Content -->
+      <div class="hero-content">
+        <div class="hero-badge" id="gsap-hero-badge">Digital Agency</div>
+        <h1 id="gsap-hero-h1">We Build Digital <span id="rotating-word">Experiences</span><br><span
+            class="text-gradient">That Convert</span></h1>
+        <p id="gsap-hero-p">We design, develop, and scale brands through powerful web experiences, UI/UX, and strategic
+          digital presence.</p>
+
+        <div class="btn-group" id="gsap-hero-btns">
+          <a href="#" class="btn btn-primary" data-modal="booking">Get Started</a>
+          <a href="#work" class="btn btn-secondary">View Work</a>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="hero-visual" id="gsap-hero-visual">
+        <div class="tech-grid-bg"></div>
+        <div class="abstract-shape"></div>
+        <div class="floating-card c1" id="gsap-card1">
+          <div class="mock-img"></div>
+          <div class="mock-line" style="width: 40%"></div>
+          <div class="mock-line" style="width: 80%"></div>
+          <div class="mock-line" style="width: 60%"></div>
+        </div>
+        <div class="floating-card c2" id="gsap-card2">
+          <div class="mock-circle"></div>
+          <div class="mock-chart-container">
+            <div class="mock-chart-bar" style="height: 40%;"></div>
+            <div class="mock-chart-bar" style="height: 70%;"></div>
+            <div class="mock-chart-bar" style="height: 100%;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 2. Credibility Strip -->
+
+  <div class="credibility-strip">
+    <div class="strip-track">
+      <!-- Repeated for infinite scroll feeling -->
+      <span class="strip-item">25+ D2C Brands</span>
+      <span class="strip-item">99% Client Satisfaction</span>
+      <span class="strip-item">24/7 Support</span>
+      <span class="strip-item">Custom-Built Systems</span>
+      <span class="strip-item">Continuous Monitoring</span>
+
+      <span class="strip-item">25+ D2C Brands</span>
+      <span class="strip-item">99% Client Satisfaction</span>
+      <span class="strip-item">24/7 Support</span>
+      <span class="strip-item">Custom-Built Systems</span>
+      <span class="strip-item">Continuous Monitoring</span>
+    </div>
+  </div>
+
+
+  <!-- 3. Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="text-center">Premium Digital Expertise</h2>
+      <p class="text-center" style="margin: 0 auto 3rem;">End-to-end solutions for ambitious modern brands.</p>
+
+      <div class="services-grid" id="gsap-services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3>AI Automation Systems</h3>
+          <p>Automate lead capture, follow-ups, CRM workflows, and customer interactions to run operations smoothly.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+            </svg>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Design intuitive, conversion-focused digital experiences that engage users and elevate brand perception.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3>Website Design & Development</h3>
+          <p>Build custom, high-performance websites from scratch tailored perfectly to your business requirements.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Website & Store Audits</h3>
+          <p>Identify UX gaps, conversion issues, and technical inefficiencies holding back your revenue potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Differentiation Section -->
+  <section class="section diff-section">
+    <div class="container diff-content">
+      <div>
+        <h2>More Than Design. <br><span class="text-gradient">We Build Scalable Systems.</span></h2>
+        <p>We are not a traditional agency. We act as an extension of your business, focusing entirely on scalable
+          outcomes rather than just deliverables.</p>
+      </div>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <span>Built from scratch, no templates</span>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <span>AI integrated from the ground up</span>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <span>Continuous monitoring after launch</span>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <span>24/7 priority technical support</span>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <span>Business-focused, metric-driven execution</span>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg></div>
+          <span>Highly scalable and cost-efficient systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Results Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">By the Numbers</h2>
+      <div class="metrics-grid" id="gsap-metrics">
+        <div class="metric-card">
+          <h3 class="counter" data-target="10" data-suffix="+">25+</h3>
+          <p>D2C Brands Served</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="counter" data-target="99" data-suffix="%">99%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="metric-card">
+          <h3>2+ Yrs</h3>
+          <p>Avg Client Partnership</p>
+        </div>
+        <div class="metric-card">
+          <h3 class="counter" data-target="100" data-suffix="%">100%</h3>
+          <p>Custom End-to-End Dev</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Case Studies Section -->
+  <section class="section" id="work">
+    <div class="container">
+      <h2 class="text-center">Our Work</h2>
+      <div class="draft-disclaimer-wrap">
+        <p class="draft-disclaimer">THESE ARE SITUATIONAL DRAFTS &mdash; NOT FINAL DESIGNS</p>
+      </div>
+      <p class="text-center" style="margin: 0 auto 3rem;">Real systems. Tangible outcomes.</p>
+
+      <div class="case-studies">
+        <!-- Case 1 — Lumina Skincare -->
+        <div class="case-study">
+          <!-- UI Mockup: E-commerce product page -->
+          <div class="case-image"
+            style="background: linear-gradient(135deg, #1a0e2e, #0d0d1a); padding: 24px; display:flex; align-items:center; justify-content:center;">
+            <div
+              style="width:100%; max-width:340px; background:#1c1730; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.07);">
+              <div
+                style="background:#251e40; padding:10px 14px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.06);">
+                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
+                <span style="flex:1;text-align:center;font-size:10px;color:#9080b0;">luminaskincare.com</span>
+              </div>
+              <div style="padding:16px;">
+                <div
+                  style="background: linear-gradient(135deg,#3d2a5a,#2a1e40); border-radius:8px; padding:16px; margin-bottom:12px; text-align:center;">
+                  <div style="font-size:11px;color:#b39ddb;letter-spacing:2px;margin-bottom:6px;">BESTSELLER</div>
+                  <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Glow Serum — 30ml</div>
+                  <div style="font-size:12px;color:#a78bca;">Vitamin C · Hyaluronic Acid · SPF</div>
+                  <div style="font-size:18px;font-weight:800;color:#c084fc;margin-top:8px;">₹1,499</div>
+                </div>
+                <div style="display:flex;gap:8px;margin-bottom:10px;">
+                  <div
+                    style="flex:1;background:#8b5cf6;border-radius:6px;padding:8px 0;text-align:center;font-size:11px;font-weight:700;color:#fff;">
+                    Add to Cart</div>
+                  <div
+                    style="width:36px;background:#251e40;border-radius:6px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.1);">
+                    <span style="color:#b39ddb;font-size:14px;">♡</span>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;background:#1a1330;border-radius:8px;padding:10px;">
+                  <div
+                    style="width:28px;height:28px;border-radius:50%;background:#2d2050;display:flex;align-items:center;justify-content:center;font-size:11px;color:#c084fc;">
+                    AI</div>
+                  <div style="flex:1;">
+                    <div style="font-size:10px;color:#9080b0;margin-bottom:2px;">Smart Assistant</div>
+                    <div style="font-size:11px;color:#d4c5ef;">"This matches your skin type perfectly!"</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-meta">
+              <span class="badge">E-Commerce</span>
+              <span class="badge">AI Integration</span>
+            </div>
+            <h3>Lumina Skincare</h3>
+            <div class="case-details">
+              <div>
+                <h5>The Problem</h5>
+                <p>High cart abandonment rates and slow manual responses to global customer inquiries.</p>
+              </div>
+              <div>
+                <h5>The Solution</h5>
+                <p>A ground-up custom headless Shopify build integrated with an AI-driven support and sales retention
+                  workflow.</p>
+              </div>
+              <div>
+                <h5>The Outcome</h5>
+                <p style="color: #fff;"><strong>38% increase in conversions &amp; 24/7 automated support handling 80% of
+                    volume.</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 — Flowstate CRM -->
+        <div class="case-study">
+          <div class="case-content" style="order: 2;">
+            <div class="case-meta">
+              <span class="badge">SaaS</span>
+              <span class="badge">UI/UX</span>
+            </div>
+            <h3>Flowstate CRM</h3>
+            <div class="case-details">
+              <div>
+                <h5>The Problem</h5>
+                <p>Complex, confusing legacy interface resulting in high user churn and long onboarding times.</p>
+              </div>
+              <div>
+                <h5>The Solution</h5>
+                <p>Complete UX overhaul and front-end rewrite focusing on intuitive data visualisation and streamlined
+                  workflows.</p>
+              </div>
+              <div>
+                <h5>The Outcome</h5>
+                <p style="color: #fff;"><strong>Reduced onboarding friction by 60% and increased user retention within
+                    90 days.</strong></p>
+              </div>
+            </div>
+          </div>
+          <!-- UI Mockup: CRM dashboard -->
+          <div class="case-image"
+            style="order: 1; background: linear-gradient(135deg, #0f1a2e, #0a0a1a); padding: 24px; display:flex; align-items:center; justify-content:center;">
+            <div
+              style="width:100%; max-width:340px; background:#111827; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.07);">
+              <div
+                style="background:#0f172a; padding:10px 14px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="font-size:11px;font-weight:700;color:#6366f1;letter-spacing:1px;">FLOWSTATE</span>
+                <div style="flex:1;"></div>
+                <div
+                  style="width:22px;height:22px;border-radius:50%;background:#312e81;display:flex;align-items:center;justify-content:center;font-size:9px;color:#a5b4fc;">
+                  JD</div>
+              </div>
+              <div style="display:flex;">
+                <div
+                  style="width:44px;background:#0f172a;padding:12px 8px;border-right:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;gap:12px;align-items:center;">
+                  <div style="width:20px;height:20px;background:#312e81;border-radius:4px;"></div>
+                  <div style="width:20px;height:3px;background:#1e293b;border-radius:2px;"></div>
+                  <div style="width:20px;height:3px;background:#1e293b;border-radius:2px;"></div>
+                  <div style="width:20px;height:3px;background:#1e293b;border-radius:2px;"></div>
+                </div>
+                <div style="flex:1;padding:12px;">
+                  <div style="font-size:10px;color:#64748b;margin-bottom:8px;">PIPELINE OVERVIEW</div>
+                  <div style="display:flex;gap:6px;margin-bottom:10px;">
+                    <div
+                      style="flex:1;background:#0f172a;border-radius:6px;padding:8px;border:1px solid rgba(99,102,241,0.3);">
+                      <div style="font-size:16px;font-weight:800;color:#6366f1;">142</div>
+                      <div style="font-size:9px;color:#64748b;">Leads</div>
+                    </div>
+                    <div
+                      style="flex:1;background:#0f172a;border-radius:6px;padding:8px;border:1px solid rgba(16,185,129,0.2);">
+                      <div style="font-size:16px;font-weight:800;color:#10b981;">38</div>
+                      <div style="font-size:9px;color:#64748b;">Closed</div>
+                    </div>
+                    <div
+                      style="flex:1;background:#0f172a;border-radius:6px;padding:8px;border:1px solid rgba(245,158,11,0.2);">
+                      <div style="font-size:16px;font-weight:800;color:#f59e0b;">$84k</div>
+                      <div style="font-size:9px;color:#64748b;">Revenue</div>
+                    </div>
+                  </div>
+                  <div style="font-size:10px;color:#64748b;margin-bottom:6px;">ACTIVITY</div>
+                  <div style="display:flex;flex-direction:column;gap:5px;">
+                    <div
+                      style="display:flex;align-items:center;gap:8px;background:#0f172a;border-radius:5px;padding:6px 8px;">
+                      <div style="width:6px;height:6px;border-radius:50%;background:#6366f1;"></div>
+                      <span style="font-size:10px;color:#94a3b8;flex:1;">Zara Kim — Demo scheduled</span>
+                      <span style="font-size:9px;color:#475569;">2m</span>
+                    </div>
+                    <div
+                      style="display:flex;align-items:center;gap:8px;background:#0f172a;border-radius:5px;padding:6px 8px;">
+                      <div style="width:6px;height:6px;border-radius:50%;background:#10b981;"></div>
+                      <span style="font-size:10px;color:#94a3b8;flex:1;">Acme Corp — Contract signed</span>
+                      <span style="font-size:9px;color:#475569;">1h</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 — Kairos Analytics -->
+        <div class="case-study">
+          <!-- UI Mockup: Analytics dashboard -->
+          <div class="case-image"
+            style="background: linear-gradient(135deg, #0c1a14, #0a0a1a); padding: 24px; display:flex; align-items:center; justify-content:center;">
+            <div
+              style="width:100%; max-width:340px; background:#0d1117; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.07);">
+              <div
+                style="background:#161b22; padding:10px 14px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="font-size:11px;font-weight:700;color:#10b981;letter-spacing:1px;">KAIROS ANALYTICS</span>
+                <span
+                  style="font-size:9px;color:#30d158;background:rgba(16,185,129,0.1);padding:2px 8px;border-radius:10px;">●
+                  Live</span>
+              </div>
+              <div style="padding:14px;">
+                <div style="display:flex;gap:6px;margin-bottom:12px;">
+                  <div
+                    style="flex:1;background:#161b22;border-radius:8px;padding:10px;border:1px solid rgba(16,185,129,0.15);">
+                    <div style="font-size:18px;font-weight:800;color:#10b981;">2.4M</div>
+                    <div style="font-size:9px;color:#6b7280;">Sessions / mo</div>
+                    <div style="font-size:9px;color:#10b981;">↑ 18%</div>
+                  </div>
+                  <div
+                    style="flex:1;background:#161b22;border-radius:8px;padding:10px;border:1px solid rgba(99,102,241,0.15);">
+                    <div style="font-size:18px;font-weight:800;color:#818cf8;">6.7%</div>
+                    <div style="font-size:9px;color:#6b7280;">CVR</div>
+                    <div style="font-size:9px;color:#818cf8;">↑ 3.2%</div>
+                  </div>
+                </div>
+                <div
+                  style="background:#161b22;border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.05);margin-bottom:10px;">
+                  <div style="font-size:9px;color:#6b7280;margin-bottom:8px;">WEEKLY REVENUE</div>
+                  <div style="display:flex;align-items:flex-end;gap:5px;height:48px;">
+                    <div style="flex:1;background:rgba(16,185,129,0.3);border-radius:3px;height:55%;"></div>
+                    <div style="flex:1;background:rgba(16,185,129,0.3);border-radius:3px;height:70%;"></div>
+                    <div style="flex:1;background:rgba(16,185,129,0.3);border-radius:3px;height:45%;"></div>
+                    <div style="flex:1;background:rgba(16,185,129,0.3);border-radius:3px;height:80%;"></div>
+                    <div style="flex:1;background:rgba(16,185,129,0.5);border-radius:3px;height:65%;"></div>
+                    <div style="flex:1;background:#10b981;border-radius:3px;height:100%;"></div>
+                    <div style="flex:1;background:rgba(16,185,129,0.4);border-radius:3px;height:75%;"></div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;background:#161b22;border-radius:6px;padding:8px;">
+                  <div style="font-size:9px;color:#6b7280;">Top page</div>
+                  <div style="flex:1;font-size:10px;color:#d1fae5;">/collections/summer-drop</div>
+                  <div style="font-size:9px;color:#10b981;">34%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-meta">
+              <span class="badge">Analytics</span>
+              <span class="badge">Web App</span>
+            </div>
+            <h3>Kairos Analytics</h3>
+            <div class="case-details">
+              <div>
+                <h5>The Problem</h5>
+                <p>Fragmented data across five platforms with no single source of truth for revenue performance.</p>
+              </div>
+              <div>
+                <h5>The Solution</h5>
+                <p>Built a unified real-time analytics dashboard pulling Shopify, Meta Ads, and GA4 data into a single
+                  clean interface.</p>
+              </div>
+              <div>
+                <h5>The Outcome</h5>
+                <p style="color: #fff;"><strong>Decision latency cut by 70% — teams actioned insights same day instead
+                    of waiting for weekly reports.</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4 — Vela Finance -->
+        <div class="case-study">
+          <div class="case-content" style="order: 2;">
+            <div class="case-meta">
+              <span class="badge">FinTech</span>
+              <span class="badge">AI Automation</span>
+            </div>
+            <h3>Vela Finance</h3>
+            <div class="case-details">
+              <div>
+                <h5>The Problem</h5>
+                <p>Manual loan application processing causing 5-day turnarounds and high drop-off from applicants.</p>
+              </div>
+              <div>
+                <h5>The Solution</h5>
+                <p>AI-powered application intake with document parsing, risk scoring, and automated email pipelines
+                  reducing manual review to a final check.</p>
+              </div>
+              <div>
+                <h5>The Outcome</h5>
+                <p style="color: #fff;"><strong>Processing time dropped from 5 days to 6 hours. Drop-off rate fell
+                    44%.</strong></p>
+              </div>
+            </div>
+          </div>
+          <!-- UI Mockup: Finance web app -->
+          <div class="case-image"
+            style="order: 1; background: linear-gradient(135deg, #0e1624, #080812); padding: 24px; display:flex; align-items:center; justify-content:center;">
+            <div
+              style="width:100%; max-width:340px; background:#0a0f1e; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.07);">
+              <div
+                style="background:#0d1526; padding:10px 14px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.06);">
+                <span style="font-size:11px;font-weight:700;color:#60a5fa;letter-spacing:1px;">VELA</span>
+                <span
+                  style="font-size:9px;background:rgba(96,165,250,0.1);color:#93c5fd;padding:2px 8px;border-radius:10px;">Loan
+                  Dashboard</span>
+              </div>
+              <div style="padding:14px;">
+                <div
+                  style="background:#0d1526;border-radius:8px;padding:12px;margin-bottom:10px;border:1px solid rgba(96,165,250,0.15);">
+                  <div style="font-size:9px;color:#64748b;margin-bottom:4px;">PORTFOLIO OVERVIEW</div>
+                  <div style="font-size:22px;font-weight:800;color:#60a5fa;">$4.2M</div>
+                  <div style="font-size:9px;color:#10b981;">↑ 12% vs last month</div>
+                  <div style="height:4px;background:#1e293b;border-radius:2px;margin-top:8px;">
+                    <div
+                      style="width:68%;height:4px;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:2px;">
+                    </div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:4px;">
+                    <span style="font-size:9px;color:#64748b;">68% deployed</span>
+                    <span style="font-size:9px;color:#60a5fa;">32% available</span>
+                  </div>
+                </div>
+                <div style="font-size:9px;color:#64748b;margin-bottom:6px;">RECENT APPLICATIONS</div>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <div
+                    style="display:flex;align-items:center;gap:8px;background:#0d1526;border-radius:5px;padding:7px 8px;">
+                    <div style="width:6px;height:6px;border-radius:50%;background:#10b981;"></div>
+                    <span style="font-size:10px;color:#94a3b8;flex:1;">Rahel T. — Auto-approved</span>
+                    <span style="font-size:9px;color:#10b981;">6h</span>
+                  </div>
+                  <div
+                    style="display:flex;align-items:center;gap:8px;background:#0d1526;border-radius:5px;padding:7px 8px;">
+                    <div style="width:6px;height:6px;border-radius:50%;background:#f59e0b;"></div>
+                    <span style="font-size:10px;color:#94a3b8;flex:1;">Marcus B. — Under review</span>
+                    <span style="font-size:9px;color:#f59e0b;">2h</span>
+                  </div>
+                  <div
+                    style="display:flex;align-items:center;gap:8px;background:#0d1526;border-radius:5px;padding:7px 8px;">
+                    <div style="width:6px;height:6px;border-radius:50%;background:#10b981;"></div>
+                    <span style="font-size:10px;color:#94a3b8;flex:1;">Sara K. — Auto-approved</span>
+                    <span style="font-size:9px;color:#10b981;">4h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 5 — Nori Studio -->
+        <div class="case-study">
+          <!-- UI Mockup: Brand landing page -->
+          <div class="case-image"
+            style="background: linear-gradient(135deg, #1a0a0a, #1a0a1a); padding: 24px; display:flex; align-items:center; justify-content:center;">
+            <div
+              style="width:100%; max-width:340px; background:#120810; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.07);">
+              <div
+                style="background:#1c0d18; padding:10px 14px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.06);">
+                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
+                <span style="flex:1;text-align:center;font-size:10px;color:#9080a0;">noristudio.com</span>
+              </div>
+              <div style="padding:0;">
+                <div style="background:linear-gradient(160deg,#2d0a28,#1a0818);padding:20px 16px;text-align:center;">
+                  <div style="font-size:9px;letter-spacing:3px;color:#e879f9;margin-bottom:8px;">NORI STUDIO</div>
+                  <div style="font-size:16px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:8px;">Jewellery
+                    Designed<br>for the Extraordinary</div>
+                  <div style="font-size:10px;color:#c4b5c8;margin-bottom:14px;">Handcrafted. Limited edition. Yours.
+                  </div>
+                  <div
+                    style="display:inline-block;background:#e879f9;color:#1a0818;font-size:10px;font-weight:700;padding:8px 20px;border-radius:20px;letter-spacing:1px;">
+                    Explore Collection</div>
+                </div>
+                <div style="padding:12px 16px;">
+                  <div style="display:flex;gap:8px;">
+                    <div
+                      style="flex:1;background:#1c0d18;border-radius:8px;overflow:hidden;border:1px solid rgba(232,121,249,0.15);">
+                      <div style="height:52px;background:linear-gradient(135deg,#4a1040,#2d0a28);"></div>
+                      <div style="padding:6px 8px;">
+                        <div style="font-size:9px;color:#e4d4f4;">Solaris Ring</div>
+                        <div style="font-size:10px;font-weight:700;color:#e879f9;">₹8,400</div>
+                      </div>
+                    </div>
+                    <div
+                      style="flex:1;background:#1c0d18;border-radius:8px;overflow:hidden;border:1px solid rgba(232,121,249,0.15);">
+                      <div style="height:52px;background:linear-gradient(135deg,#2d1a40,#1a0828);"></div>
+                      <div style="padding:6px 8px;">
+                        <div style="font-size:9px;color:#e4d4f4;">Luna Pendant</div>
+                        <div style="font-size:10px;font-weight:700;color:#e879f9;">₹6,200</div>
+                      </div>
+                    </div>
+                    <div
+                      style="flex:1;background:#1c0d18;border-radius:8px;overflow:hidden;border:1px solid rgba(232,121,249,0.15);">
+                      <div style="height:52px;background:linear-gradient(135deg,#3d1035,#280a20);"></div>
+                      <div style="padding:6px 8px;">
+                        <div style="font-size:9px;color:#e4d4f4;">Aura Cuff</div>
+                        <div style="font-size:10px;font-weight:700;color:#e879f9;">₹11,900</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-meta">
+              <span class="badge">D2C Brand</span>
+              <span class="badge">Website Build</span>
+            </div>
+            <h3>Nori Studio</h3>
+            <div class="case-details">
+              <div>
+                <h5>The Problem</h5>
+                <p>A premium jewellery brand running on a generic template that felt misaligned with their high-end
+                  positioning.</p>
+              </div>
+              <div>
+                <h5>The Solution</h5>
+                <p>Designed and built a bespoke e-commerce website with editorial-style layout, custom product pages,
+                  and a streamlined one-page checkout.</p>
+              </div>
+              <div>
+                <h5>The Outcome</h5>
+                <p style="color: #fff;"><strong>Average order value increased by 28% and organic time-on-site doubled
+                    post-launch.</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 6 — Drift Health App -->
+        <div class="case-study">
+          <div class="case-content" style="order: 2;">
+            <div class="case-meta">
+              <span class="badge">Health Tech</span>
+              <span class="badge">Mobile UI</span>
+            </div>
+            <h3>Drift Health</h3>
+            <div class="case-details">
+              <div>
+                <h5>The Problem</h5>
+                <p>A wellness startup with a solid product but a confusing onboarding flow leading to 60% day-one
+                  drop-off on their app.</p>
+              </div>
+              <div>
+                <h5>The Solution</h5>
+                <p>Full UX audit and redesign of the onboarding, dashboard, and goal-tracking modules with a focus on
+                  motivation and habit-forming micro-interactions.</p>
+              </div>
+              <div>
+                <h5>The Outcome</h5>
+                <p style="color: #fff;"><strong>Day-one retention lifted from 40% to 74%. App Store rating improved from
+                    3.6 to 4.7 within 3 months.</strong></p>
+              </div>
+            </div>
+          </div>
+          <!-- UI Mockup: Mobile health app -->
+          <div class="case-image"
+            style="order: 1; background: linear-gradient(135deg, #051510, #050510); padding: 24px; display:flex; align-items:center; justify-content:center;">
+            <div
+              style="width:160px; background:#0a1a12; border-radius:20px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.08); position:relative;">
+              <div style="background:#0d2018;padding:14px 12px 0;">
+                <div style="font-size:9px;color:#6ee7b7;letter-spacing:1px;margin-bottom:2px;">DRIFT HEALTH</div>
+                <div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:2px;">Good morning,<br><span
+                    style="color:#34d399;">Alex 👋</span></div>
+                <div style="font-size:9px;color:#6b7280;margin-bottom:12px;">Thursday, 3 Apr</div>
+                <div
+                  style="background:linear-gradient(135deg,#064e3b,#065f46);border-radius:10px;padding:10px;margin-bottom:10px;">
+                  <div style="font-size:9px;color:#6ee7b7;margin-bottom:2px;">TODAY'S GOAL</div>
+                  <div style="font-size:20px;font-weight:800;color:#fff;">8,240<span
+                      style="font-size:10px;font-weight:400;color:#6ee7b7;"> steps</span></div>
+                  <div style="height:4px;background:rgba(255,255,255,0.1);border-radius:2px;margin-top:6px;">
+                    <div style="width:74%;height:4px;background:#34d399;border-radius:2px;"></div>
+                  </div>
+                  <div style="font-size:8px;color:#6ee7b7;margin-top:3px;">74% of 11k target</div>
+                </div>
+              </div>
+              <div style="padding:10px 12px;">
+                <div style="font-size:9px;color:#6b7280;margin-bottom:6px;">QUICK STATS</div>
+                <div style="display:flex;gap:6px;margin-bottom:8px;">
+                  <div style="flex:1;background:#0d2018;border-radius:7px;padding:7px;text-align:center;">
+                    <div style="font-size:12px;font-weight:700;color:#34d399;">620</div>
+                    <div style="font-size:8px;color:#6b7280;">kcal</div>
+                  </div>
+                  <div style="flex:1;background:#0d2018;border-radius:7px;padding:7px;text-align:center;">
+                    <div style="font-size:12px;font-weight:700;color:#60a5fa;">7h 20m</div>
+                    <div style="font-size:8px;color:#6b7280;">sleep</div>
+                  </div>
+                </div>
+                <div style="background:#0d2018;border-radius:7px;padding:8px;">
+                  <div style="font-size:9px;color:#6b7280;margin-bottom:4px;">HABIT STREAK</div>
+                  <div style="display:flex;gap:4px;">
+                    <div style="flex:1;height:16px;background:#34d399;border-radius:3px;"></div>
+                    <div style="flex:1;height:16px;background:#34d399;border-radius:3px;"></div>
+                    <div style="flex:1;height:16px;background:#34d399;border-radius:3px;"></div>
+                    <div style="flex:1;height:16px;background:#34d399;border-radius:3px;"></div>
+                    <div style="flex:1;height:16px;background:#34d399;border-radius:3px;"></div>
+                    <div style="flex:1;height:16px;background:rgba(52,211,153,0.2);border-radius:3px;"></div>
+                    <div style="flex:1;height:16px;background:rgba(52,211,153,0.2);border-radius:3px;"></div>
+                  </div>
+                  <div style="font-size:8px;color:#34d399;margin-top:4px;">5-day streak 🔥</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Testimonials Section -->
+  <section class="section" style="background: var(--bg-surface); overflow: hidden;">
+    <div class="container">
+      <h2>Trusted Worldwide</h2>
+
+      <div class="testimonials-slider">
+        <!-- T1 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"The team built out a seamless infrastructure for our global launch. Their AI integration completely
+            changed how we handle inbound leads — response times dropped from hours to under 30 seconds."</p>
+          <div class="client-info">
+            <div class="client-avatar">JD</div>
+            <div class="client-details">
+              <h4>Julien Dupont</h4>
+              <span>Director of Growth, Veloce (France)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T2 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"We didn't just get a website; we got a growth engine. The custom checkout flow alone boosted our
+            conversion rate substantially."</p>
+          <div class="client-info">
+            <div class="client-avatar">SM</div>
+            <div class="client-details">
+              <h4>Sarah Miller</h4>
+              <span>Founder, Aura Design (USA)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T3 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"Their audit revealed massive gaps in our user journey. The execution of the redesign was flawless and
+            handled entirely in-house. Our bounce rate dropped 34% in the first two weeks post-launch."</p>
+          <div class="client-info">
+            <div class="client-avatar">AK</div>
+            <div class="client-details">
+              <h4>Arjun Kapoor</h4>
+              <span>CMO, NextGen Retail (India)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T4 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"Absolute professionals. They stand by their post-launch support and keep our systems optimised
+            continuously without us asking."</p>
+          <div class="client-info">
+            <div class="client-avatar">LW</div>
+            <div class="client-details">
+              <h4>Lars Weber</h4>
+              <span>Operations Head, TechNova (Germany)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T5 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"Sovix rebuilt our entire SaaS dashboard from scratch. The new interface is night and day — our
+            trial-to-paid conversion went up 22% within 60 days. Couldn't be happier."</p>
+          <div class="client-info">
+            <div class="client-avatar">PR</div>
+            <div class="client-details">
+              <h4>Priya Rajan</h4>
+              <span>CEO, Stackly (Singapore)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T6 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"Fast, sharp, and genuinely invested in our success. They set up an AI lead qualifier that pre-screens
+            every enquiry before it hits our sales team. Game changer for us."</p>
+          <div class="client-info">
+            <div class="client-avatar">MO</div>
+            <div class="client-details">
+              <h4>Marcus O'Brien</h4>
+              <span>Head of Sales, PulseHQ (Australia)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T7 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"The Sovix team redesigned our product landing page on a very tight timeline and it looked absolutely
+            premium. We saw a 3× increase in demo bookings within the first month."</p>
+          <div class="client-info">
+            <div class="client-avatar">NC</div>
+            <div class="client-details">
+              <h4>Nadia Cheri</h4>
+              <span>Product Lead, Folio Labs (Canada)</span>
+            </div>
+          </div>
+        </div>
+        <!-- T8 -->
+        <div class="testimonial-card">
+          <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p>"Highly recommend. They don't just deliver and disappear — the ongoing monitoring and quarterly strategy
+            reviews are something no other agency offered us."</p>
+          <div class="client-info">
+            <div class="client-avatar">RS</div>
+            <div class="client-details">
+              <h4>Rohan Shah</h4>
+              <span>Founder, Kova Collective (UAE)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Process Section -->
+  <section class="section" id="process">
+    <div class="container">
+      <h2 class="text-center">How We Work</h2>
+      <p class="text-center" style="margin: 0 auto 3rem;">A structured methodology ensuring exceptional results.</p>
+
+      <div class="process-grid" id="gsap-process">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h4>Audit & Strategy</h4>
+            <p>We analyze your existing workflows and identify highly leveraged opportunities for automation and design
+              improvement.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h4>UI/UX Planning</h4>
+            <p>Creating wireframes, user journeys, and design systems focused on driving conversions and an intuitive
+              experience.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h4>Design & Development</h4>
+            <p>Writing custom, lightweight code while implementing pixel-perfect designs. No bulky templates used.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h4>AI Integration</h4>
+            <p>Connecting LLMs, AI agents, and custom workflows directly into your CRM, website, or backend system.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">05</div>
+          <div class="step-content">
+            <h4>Launch & Testing</h4>
+            <p>Rigorous multi-device QA, load testing, and ensuring optimal page speed before initiating the go-live
+              sequence.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">06</div>
+          <div class="step-content">
+            <h4>Monitoring & Optimization</h4>
+            <p>Continuous uptime tracking, security patching, and conversion rate optimization metrics analyzed
+              strictly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Post-Launch Support -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container info-section">
+      <div class="service-icon" style="margin: 0 auto 2rem;">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <h2>We Stay After Launch</h2>
+      <p>We continuously monitor, maintain, and optimize your website and systems to ensure long-term performance and
+        stability. Unlike traditional models, our partnership scales alongside your business infrastructure.</p>
+    </div>
+  </section>
+
+  <!-- 10. Pricing / Engagement -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2 class="text-center">Engagement Offerings</h2>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <span></span>
+          <div class="content">
+            <h3>Audit Services</h3>
+            <p>Comprehensive analysis of existing systems.</p>
+            <ul>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> UX/UI Gap Analysis</li>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Code & Performance Review</li>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Automation Opportunity Map</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pricing-card">
+          <span></span>
+          <div class="content">
+            <h3>Website + UI/UX Build</h3>
+            <p>Premium online presence creation.</p>
+            <ul>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Custom Global Design</li>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> High-Performance Front-end</li>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Conversion Strategy</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pricing-card featured">
+          <span></span>
+          <div class="content">
+            <h3>Full System Development</h3>
+            <p>End-to-end digital infrastructure.</p>
+            <ul>
+              <li><svg width="16" height="16" stroke="var(--accent-light)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Web Build & AI Integration</li>
+              <li><svg width="16" height="16" stroke="var(--accent-light)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Custom CRM Workflows</li>
+              <li><svg width="16" height="16" stroke="var(--accent-light)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Priority Retainer Support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pricing-card">
+          <span></span>
+          <div class="content">
+            <h3>AI Automation Setup</h3>
+            <p>Enhancing existing environments.</p>
+            <ul>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> AI Sales & Support Agents</li>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Lead Capture Pipelines</li>
+              <li><svg width="16" height="16" stroke="var(--accent-purple)" fill="none" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg> Operations Consulting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Global Reach Section -->
+  <section class="section" style="border-top: 1px solid var(--border-subtle);">
+    <div class="container info-section">
+      <h2 class="text-gradient">Built for Modern, Global Brands</h2>
+      <p>We work with D2C and digital-first businesses across markets, delivering scalable digital systems combining
+        design, automation, and performance on an international scale.</p>
+    </div>
+  </section>
+
+  <!-- 12. Final CTA -->
+  <section class="section" id="contact"
+    style="background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, transparent 60%);">
+    <div class="container text-center">
+      <h2>Turn Your Website Into a 24/7 Growth Engine</h2>
+      <p style="margin: 0 auto 3rem;">Schedule your discovery session to discuss how our systems can generate leverage
+        for your brand.</p>
+      <div class="btn-group center">
+        <a href="#" class="btn btn-primary" data-modal="booking">Book a Call</a>
+        <a href="#" class="btn btn-secondary" data-modal="booking" data-service="Website Audit">Get Free Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="logo"
+            style="margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; letter-spacing: 0.2em; font-weight: 800;"><img
+              src="logo.png" alt="Sovix Logo" style="height: 56px; width: auto;">SOVIX</a>
+          <p style="margin-bottom: 2rem; font-size: 0.875rem;">Building premium digital systems, combining top-tier
+            UI/UX design with robust
+            AI automations for ambitious brands globally.</p>
+          <div class="social-links" style="display: flex; gap: 1.25rem;">
+            <a href="https://www.instagram.com/sovix.official/" aria-label="Instagram" class="social-icon"
+              style="color: #94a3b8; transition: color 0.3s;" onmouseover="this.style.color='#fff'"
+              onmouseout="this.style.color='#94a3b8'">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://x.com/sovixofficial" aria-label="Twitter" class="social-icon"
+              style="color: #94a3b8; transition: color 0.3s;" onmouseover="this.style.color='#fff'"
+              onmouseout="this.style.color='#94a3b8'">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                </path>
+              </svg>
+            </a>
+            <a href="https://discord.gg/2GEgNgkq" aria-label="Discord" class="social-icon"
+              style="color: #94a3b8; transition: color 0.3s;" onmouseover="this.style.color='#fff'"
+              onmouseout="this.style.color='#94a3b8'">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M19.7 5.7c-1.5-1.1-3.3-1.6-5.2-1.7-.2.4-.4.9-.5 1.3-2 .3-4 .3-6 0-.2-.4-.3-.9-.5-1.3-1.9.1-3.7.6-5.2 1.7C-1.8 14.5.3 22 2.6 22c1.9 0 3.7-1.4 4.8-2.6l1.3 1.9c1.9.6 4 .6 6 0l1.3-1.9c1.1 1.2 2.9 2.6 4.8 2.6 2.3 0 4.4-7.5 .9-16.3zM8.5 15.5c-1.1 0-2-.9-2-2.1s.9-2.1 2-2.1c1.1 0 2 .9 2 2.1s-.9 2.1-2 2.1zm7.1 0c-1.1 0-2-.9-2-2.1s.9-2.1 2-2.1c1.1 0 2 .9 2 2.1s-.9 2.1-2 2.1z">
+                </path>
+              </svg>
+            </a>
+            <a href="mailto:sovixofficial@gmail.com" aria-label="Mail" class="social-icon"
+              style="color: #94a3b8; transition: color 0.3s;" onmouseover="this.style.color='#fff'"
+              onmouseout="this.style.color='#94a3b8'">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">AI Systems</a>
+          <a href="#">UI/UX Design</a>
+          <a href="#">Web Development</a>
+          <a href="#">System Audits</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">Case Studies</a>
+          <a href="#">Our Process</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Sovix. All rights reserved.</span>
+        <span>Made for Global Impact.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back To Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+</body>
+
+</html>
